@@ -1,0 +1,244 @@
+.hidden{
+    display: none;
+}
+
+.no-booking-container{
+    width: 300px;
+    height: 80vh;
+    margin: 200px auto;
+    text-align: center;
+}
+.no-booking-container div p{
+    font-size: 1rem;
+}
+.no-booking-container div p:first-child{
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+.no-booking-container div{
+    margin-bottom: 15px;
+}
+.no-booking-container div a{
+    text-decoration: none;
+    padding: 10px 15px;
+    margin-top: px;
+    background-color: crimson;
+    color: white;
+}
+.no-booking-container div form button{
+    border: none;
+    outline: none;
+    padding: 10px 15px;
+    margin-top: px;
+    background-color: crimson;
+    color: white;
+}
+
+
+@media (max-width: 600px) {
+    
+    html{
+        font-size: 12px;
+    }
+
+    .no-booking-container{
+        margin-top: 200px;
+    }
+}
+
+
+.status-bar{
+    margin: auto;
+    margin-top: 10px;
+    padding: 1rem 0;
+}
+.status-bar #progressbar {
+    height: 100px;
+    overflow: hidden;
+    color: lightgrey;
+}
+
+#progressbar .activeStep {
+    color: #0b54e7;
+    text-align: center;
+}
+
+.status-bar #progressbar #step2 span{
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -60%);
+    color: yellow;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+#progressbar .activeStep span{
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -60%);
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+#progressbar .expired span{
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -60%);
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.status-bar #progressbar li {
+    list-style-type: none;
+    font-size: 1rem;
+    width: 25%;
+    float: left;
+    position: relative;
+    font-weight: 400;
+}
+.status-bar #progressbar li strong{
+    position: absolute;
+    top: 110%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    text-align: center;
+
+}
+
+.status-bar #progressbar #step1:before {
+    content: "";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.status-bar #progressbar #step2:before {
+    content: "";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.status-bar #progressbar #step3:before {
+    content: "";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.status-bar #progressbar #step4:before {
+    content: "";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.status-bar #progressbar li:before {
+    width: 40px;
+    height: 40px;
+    line-height: 45px;
+    display: block;
+    font-size: 20px;
+    color: #ffffff;
+    background: lightgray;
+    border-radius: 50%;
+    margin: 0 auto 10px auto;
+    padding: 2px;
+
+}
+
+.status-bar #progressbar li:nth-child(2)::after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: lightgray;
+    position: absolute;
+    left: 0%;
+    top: 20px;
+}
+.status-bar #progressbar li:nth-child(3)::after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: lightgray;
+    position: absolute;
+    left: 0%;
+    top: 20px;
+}
+.status-bar #progressbar li:first-child::after {
+    content: '';
+    width: 50%;
+    height: 2px;
+    background: lightgray;
+    position: absolute;
+    left: 50%;
+    top: 20px;
+    
+}
+.status-bar #progressbar li:last-child::after {
+    content: '';
+    width: 50%;
+    height: 2px;
+    background: lightgray;
+    position: absolute;
+    left: 0%;
+    top: 20px;
+}
+
+.status-bar #progressbar li.activeStep:before,
+.status-bar #progressbar li.activeStep:after {
+    background: #052df4
+}
+
+.status-bar #progressbar li.expired:before,
+.status-bar #progressbar li.expired:after {
+    background: red;
+}
+
+#progressbar .expired {
+    color: red;
+    text-align: center;
+}
+
+
+
+
+
+.detail-box{
+    max-width: 850px;
+    width: 100%;
+    margin: auto;
+    background-color: white;
+    border-radius: 10px;
+    /* padding: 1rem; */
+}
+.detail-box .header{
+    border-bottom: 2px solid grey;
+    padding: 8px 5px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.detail-box .header p{
+    font-size: 1.8rem;
+}
+.close-detail{
+    cursor: pointer;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+#hook-container::-webkit-scrollbar {
+display: none;
+}
+
+/* Hide scrollbar for IE and Edge */
+#hook-container {
+-ms-overflow-style: none;
+}

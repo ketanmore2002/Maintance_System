@@ -1,0 +1,514 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Admin Panel</title>
+
+    <!-- Custom fonts for this template-->
+    {% comment %} <link href="{% static 'vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css' %}"> {% endcomment %}
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet">
+    <link href="{% static 'adminpanel.css' %}" rel="stylesheet">
+    <link href="{% static 'vendor/datatables/dataTables.bootstrap4.min.css' %}" rel="stylesheet">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="d-none d-sm-block navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a href="" class="sidebar-brand d-flex align-items-center">
+                <div class="sidebar-brand-text">Admin Panel</div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0 mb-2">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item my-1 active">
+                <a class="nav-link link-1" style="cursor: pointer;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-grid-fill" viewBox="0 0 16 16">
+                        <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zm8 0A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm-8 8A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm8 0A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3z"/>
+                    </svg>
+                    <span class="mt-1">Dashboard</span>
+                </a>
+            </li>
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item my-1">
+                <a class="nav-link link-2" style="cursor: pointer;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-filetype-csv" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5L14 4.5ZM3.517 14.841a1.13 1.13 0 0 0 .401.823c.13.108.289.192.478.252.19.061.411.091.665.091.338 0 .624-.053.859-.158.236-.105.416-.252.539-.44.125-.189.187-.408.187-.656 0-.224-.045-.41-.134-.56a1.001 1.001 0 0 0-.375-.357 2.027 2.027 0 0 0-.566-.21l-.621-.144a.97.97 0 0 1-.404-.176.37.37 0 0 1-.144-.299c0-.156.062-.284.185-.384.125-.101.296-.152.512-.152.143 0 .266.023.37.068a.624.624 0 0 1 .246.181.56.56 0 0 1 .12.258h.75a1.092 1.092 0 0 0-.2-.566 1.21 1.21 0 0 0-.5-.41 1.813 1.813 0 0 0-.78-.152c-.293 0-.551.05-.776.15-.225.099-.4.24-.527.421-.127.182-.19.395-.19.639 0 .201.04.376.122.524.082.149.2.27.352.367.152.095.332.167.539.213l.618.144c.207.049.361.113.463.193a.387.387 0 0 1 .152.326.505.505 0 0 1-.085.29.559.559 0 0 1-.255.193c-.111.047-.249.07-.413.07-.117 0-.223-.013-.32-.04a.838.838 0 0 1-.248-.115.578.578 0 0 1-.255-.384h-.765ZM.806 13.693c0-.248.034-.46.102-.633a.868.868 0 0 1 .302-.399.814.814 0 0 1 .475-.137c.15 0 .283.032.398.097a.7.7 0 0 1 .272.26.85.85 0 0 1 .12.381h.765v-.072a1.33 1.33 0 0 0-.466-.964 1.441 1.441 0 0 0-.489-.272 1.838 1.838 0 0 0-.606-.097c-.356 0-.66.074-.911.223-.25.148-.44.359-.572.632-.13.274-.196.6-.196.979v.498c0 .379.064.704.193.976.131.271.322.48.572.626.25.145.554.217.914.217.293 0 .554-.055.785-.164.23-.11.414-.26.55-.454a1.27 1.27 0 0 0 .226-.674v-.076h-.764a.799.799 0 0 1-.118.363.7.7 0 0 1-.272.25.874.874 0 0 1-.401.087.845.845 0 0 1-.478-.132.833.833 0 0 1-.299-.392 1.699 1.699 0 0 1-.102-.627v-.495Zm8.239 2.238h-.953l-1.338-3.999h.917l.896 3.138h.038l.888-3.138h.879l-1.327 4Z"/>
+                      </svg>
+                    <span class="mt-1">Export Data</span></a>
+            </li>
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block mt-2">        
+        </ul>
+       
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column position-relative">
+            <!-- Main Content -->
+            <div id="content" style="position: relative;">
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow d-flex align-items-center justify-content-between">
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleMenu" class=" border-0 bg-white d-sm-none mr-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="black" class="bi bi-list" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                        </svg>
+                    </button>
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600">Hello! 🙋🏻‍♂️ <b>{{ request.user.username }}</b></span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="grey" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                                </svg>
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <button class="dropdown-item" id="profile">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profile
+                                </button>
+                                <a class="dropdown-item" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- End of Topbar -->
+                
+                <!-- Begin Page Content -->
+                <div class="page container-fluid main">
+                    <!-- Content Row -->
+                    <div class="row">
+                        
+                        <div class="col-xl-3 col-md-6 mb-4 category-selection " id="allselection" style="cursor: pointer" >
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                Total Tickets</div>
+                                            <div id="totaltickets" class="h5 mb-0 font-weight-bold text-gray-800">{{ total }}</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-3 col-md-6 mb-4 category-selection " id="completeselection" style="cursor: pointer" >
+                            <div class="card border-left-info shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Completed Tasks
+                                            </div>
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-auto">
+                                                    <div id="percentage" class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{percentage}}%</div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="progress progress-sm mr-2">
+                                                        <!-- <div class="progress-bar bg-info" role="progressbar" aria-valuenow='{{percentage | floatformat:0 }}' aria-valuemin="0"
+                                                            aria-valuemax="100"></div> -->
+                                                        <progress id="percentagebar" style="width: 100%; height: 10px;" max="100" min="0" value="{{percentage}}"></progress>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-3 col-md-6 mb-4 category-selection " id="progressselection" style="cursor: pointer" >
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                Processing Tickets</div>
+                                            <div id="progress" class="h5 mb-0 font-weight-bold text-gray-800">{{ progress }}</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-3 col-md-6 mb-4 category-selection " id="incompleteselection" style="cursor: pointer" >
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                Incomplete Tickets</div>
+                                            <div id="incomplete" class="h5 mb-0 font-weight-bold text-gray-800">{{ incomplete }}</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="my-5">
+                        <!-- DataTales Example -->
+                        <div class="card shadow mb-4 ">
+                            <div class="card-header py-3 d-flex align-items-center justify-content-between">
+                                <h4 class="text-left m-0 font-weight-bold text-primary">Ticket List</h4>
+                            </div>
+                            
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr class="bg-gray-100">
+                                                <th class="text-dark" width="5%">ID</th>
+                                                <th class="text-dark" width="20%">Name</th>
+                                                <th class="text-dark" width="20%">Date / Time</th>
+                                                <th class="text-dark" width="12%">Email</th>
+                                                <th class="text-dark" width="12%">Phone</th>
+                                                <th class="text-dark" width="15%">Status</th>
+                                                <th class="text-dark" width="10%">Details</th>
+                                                <th class="text-dark" width="10%">Action</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody id="agreement-table">
+                                            {% for element in data %}
+                                                <tr>
+                                                    <td>{{element.id}}</td>
+                                                    <td>{{element.fname}} {{element.lname}}</td>
+                                                    <td>{{element.date}}</td>
+                                                    <td>{{element.email}}</td>
+                                                    <td>{{element.Phone_Number}}</td>
+                                                    <td>{{element.status}}</td>
+                                                    <td class="page-detail text-primary" style="cursor:pointer;" onclick="detail_page_info({{element.pk}})">Details</td>
+                                                    <td class="page-detail text-danger" style="cursor:pointer;" onclick="delete_agreement(this, {{element.pk}})">Delete</td>
+                                                </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.container-fluid -->
+
+                <div class="page d-none container-fluid main" >
+                    <div class="my-5 px-3 bg-white shadow mx-auto"  style="height: 500px; max-width: 900px;">
+                        <!-- DataTales Example -->
+                        <div class="h-100 d-flex align-items-center justify-content-center">
+                            <div class="text-center flex-grow-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-cloud-arrow-down" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M7.646 10.854a.5.5 0 0 0 .708 0l2-2a.5.5 0 0 0-.708-.708L8.5 9.293V5.5a.5.5 0 0 0-1 0v3.793L6.354 8.146a.5.5 0 1 0-.708.708l2 2z"/>
+                                    <path d="M4.406 3.342A5.53 5.53 0 0 1 8 2c2.69 0 4.923 2 5.166 4.579C14.758 6.804 16 8.137 16 9.773 16 11.569 14.502 13 12.687 13H3.781C1.708 13 0 11.366 0 9.318c0-1.763 1.266-3.223 2.942-3.593.143-.863.698-1.723 1.464-2.383zm.653.757c-.757.653-1.153 1.44-1.153 2.056v.448l-.445.049C2.064 6.805 1 7.952 1 9.318 1 10.785 2.23 12 3.781 12h8.906C13.98 12 15 10.988 15 9.773c0-1.216-1.02-2.228-2.313-2.228h-.5v-.5C12.188 4.825 10.328 3 8 3a4.53 4.53 0 0 0-2.941 1.1z"/>
+                                </svg>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, asperiores!</p>
+                                <a class="btn btn-danger" href="/getfile">Download Data</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.container-fluid -->
+            
+                <!-- Page Wrapper -->
+                <div class="page d-none detail-page w-100 m-auto" id="wrapper" style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
+                    
+            
+                    <!-- Content Wrapper -->
+                    <div id="content-wrapper" class="d-flex flex-column">
+                        <!-- Main Content -->
+                        <div id="content">
+                            <!-- Begin Page Content -->
+                            <div class="container-fluid bg-white py-5 w-100 sm- mx-auto position-relative" style="max-width: 950px;">
+                                <button id="close-detail-page" class="position-absolute bg-white" style="top: 30px; right: 20px; cursor: pointer; border: none;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="grey" class="bi bi-x" viewBox="0 0 16 16">
+                                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                                    </svg>
+                                </button>
+
+                                <script>
+                                    const close_detail_page = document.getElementById("close-detail-page");
+                                    close_detail_page.addEventListener("click", CloseDetailPage)
+
+                                    function CloseDetailPage(){
+                                        pages[2].classList.add("d-none");
+                                        pages[prev_page].classList.remove("d-none");
+                                        nav_items[prev_page].classList.add("active");
+                                        current_page = prev_page;
+                                    }
+                                </script>
+            
+                                <div class=" py-1" style="border-bottom: 2px solid grey;">
+                                    <h3 style="color: black;">Ticket Details Page</h3>
+                                </div>
+
+                                <div class="w-100 my-5 px-2">
+                                    <div class="w-100 mb-3" >
+                                        <div class="d-sm-flex align-items-center justify-content-between px-2  mb-3 w-100" style="border-bottom: 2px solid #e3dfdf;">
+                                            <p class="mr-3" style="font-size: 1.3rem; color: black;">User Name: </p>
+                                            <p id="detailUsername" style="font-size: 1.2rem;">Ketan More</p>
+                                        </div>
+                                        <div class="d-sm-flex align-items-center justify-content-between px-2  mb-3 w-100" style="border-bottom: 2px solid #e3dfdf;">
+                                            <p class="mr-3" style="font-size: 1.3rem; color: black;">Email: </p>
+                                            <p id="detailUseremail" style="font-size: 1.2rem;"> <a href="#" style="color: rgb(156, 156, 156);"> ketanmore200310@gmail.com </a></p>
+                                        </div>
+                                    </div>
+                                    <div class="w-100 mb-3" >
+                                        <div class="d-sm-flex align-items-center justify-content-between px-2  mb-3 w-100" style="border-bottom: 2px solid #e3dfdf;">
+                                            <p class="mr-3" style="font-size: 1.3rem; color: black;">Phone Number: </p>
+                                            <p id="detailphone" style="font-size: 1.2rem;">8375927495</p>
+                                        </div>
+                                        <div class="d-sm-flex align-items-center justify-content-between px-2  mb-3 w-100" style="border-bottom: 2px solid #e3dfdf;">
+                                            <p class="mr-3" style="font-size: 1.3rem; color: black;">Date: </p>
+                                            <p id="detailDate" style="font-size: 1.2rem;">Nov. 19, 2022, 9:55 a.m.</p>
+                                        </div>
+                                    </div>
+                                    <div class="w-100 mb-3">
+                                        <div class="d-sm-flex align-items-center justify-content-between px-2  mb-3 w-100" style="border-bottom: 2px solid #e3dfdf;">
+                                            <p class="mr-3" style="font-size: 1.3rem; color: black;">Product Name: </p>
+                                            <p  id="detailProduct_Name" style="font-size: 1.2rem;">Washing Machine</p>
+                                        </div>
+                                        <div class="d-sm-flex align-items-center justify-content-between px-2  mb-3 w-100" style="border-bottom: 2px solid #e3dfdf;">
+                                            <p class="mr-4" style="font-size: 1.4rem; color: black;">Ticket Status: </p>
+
+                                            <input type="hidden" name="agree_id" id="hidden_id">
+                                            <input type="hidden" name="csrf_token" id="staus_csrf_token" value="{{ csrf_token }}">
+                                            <select  style="width: 160px; font-size: 1.2rem; border: none; outline: none; border-bottom: 2px solid rgb(161, 208, 247); padding: 8px 12px; font-weight: bold;" name="agreement_status" id="detailStatus" class="mb-3" onchange="changeStatus()">
+                                            </select>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="w-100  mb-3" >
+                                        <div class=" px-2  mb-3 w-100" style="border-bottom: 2px solid #e3dfdf;">
+                                            <p class="mr-3" style="font-size: 1.3rem; color: black;">Address: </p>
+                                            <p id="detailAddress" style="font-size: 1.2rem;"></p>
+                                        </div>
+                                        <div class=" px-2 mb-3 w-100" style="border-bottom: 2px solid #e3dfdf;">
+                                            <p class="mr-3" style="font-size: 1.3rem; color: black;">Query: </p>
+                                            <p  id="detailComment" style="font-size: 1.2rem;"></p>
+                                        </div>
+                                        <div class=" px-2 mb-3 w-100" style="border-bottom: 2px solid #e3dfdf;">
+                                            <p class="mr-3" style="font-size: 1.3rem; color: black;">Solution: </p>
+                                            <!-- <p  id="detailComment" style="font-size: 1.2rem;"></p> -->
+                                            <!-- <input  type="text"> -->
+                                            <form id="solutionForm" class="mb-4" action="">
+                                                <textarea class="w-100 px-3 py-3 mb-2" style="border: 1px solid rgb(197, 197, 197); outline: none; resize: none; font-size: large; border-radius: 10px; color: grey;" name="solution" id="solution" cols="30" rows="10"></textarea>
+                                                <button class="btn btn-primary px-4 py-2">Submit</button>
+                                            </form>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+            
+                            </div>
+                            <!-- /.container-fluid -->
+            
+                        </div>
+                        <!-- End of Main Content -->
+            
+            
+                    </div>
+                    <!-- End of Content Wrapper -->
+            
+                </div>
+
+                <div class="page d-none w-100 m-auto" id="wrapper" style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
+                    <div class="container">
+                        <div class="main-body">
+                              <div class="gutters-sm">
+                                <div class="w-100 pt-5 px-5 bg-white">
+                                  <div class="">
+                                    <div class="card-body">
+                                      <div class="d-flex flex-column align-items-center text-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-person-check" viewBox="0 0 16 16">
+                                            <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm1.679-4.493-1.335 2.226a.75.75 0 0 1-1.174.144l-.774-.773a.5.5 0 0 1 .708-.708l.547.548 1.17-1.951a.5.5 0 1 1 .858.514ZM11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/>
+                                            <path d="M8.256 14a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10c.26 0 .507.009.74.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1h5.256Z"/>
+                                        </svg>
+                                        <div class="mt-3">
+                                          <h4>{{ request.user.first_name }} {{ request.user.last_name }}</h4>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="w-100 p-3 bg-white" >
+                                  <div class="bg-white mb-3" style="max-width: 500px; margin: auto;">
+                                    <div class="card-body w-100">
+                                      <div class="w-100 d-flex align-items-center justify-content-between">
+                                        <div class="">
+                                          <h6 class="mb-0">Full Name</h6>
+                                        </div>
+                                        <div class=" text-secondary">
+                                            {{ request.user.first_name }} {{ request.user.last_name }}
+                                        </div>
+                                      </div>
+                                      <hr>
+                                      <div class="w-100 d-flex align-items-center justify-content-between">
+                                        <div class="">
+                                          <h6 class="mb-0">Email</h6>
+                                        </div>
+                                        <div class="text-secondary">
+                                            {{ request.user.email }}
+                                        </div>
+                                      </div>
+                                      <hr>
+                                      <div class="d-flex align-items-center justify-content-between">
+                                        <div class="">
+                                          <h6 class="mb-0">Username</h6>
+                                        </div>
+                                        <div class="text-secondary">
+                                            {{ request.user.username }}
+                                        </div>
+                                      </div>
+                                      <hr>
+                                      <div class="d-flex align-items-center justify-content-between">
+                                        <div class="">
+                                          <h6 class="mb-0">User ID</h6>
+                                        </div>
+                                        <div class="text-secondary">
+                                            {{ request.user.id }}
+                                        </div>
+                                      </div>
+                                      <hr>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                    
+                            </div>
+                        </div>
+                </div>
+
+
+
+
+            </div>
+            <!-- End of Main Content -->
+        </div>
+        <!-- End of Content Wrapper -->
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-up-short" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z"/>
+        </svg>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Alerts -->
+    <div id="alert_success" class="alert alert-success w-100 text-center position-fixed d-none mx-auto" style="top: 30px; max-width: 400px; left: 50%; transform: translate(-50%, 0)" role="alert">
+        This is a success alert—check it out!
+    </div>
+    <div id="alert_danger" class="alert alert-danger w-100 text-center position-fixed d-none mx-auto" style="top: 30px; max-width: 400px" role="alert">
+    This is a danger alert—check it out!
+    </div>
+
+
+
+    <div id="spinner" class="d-none flex-column align-items-center justify-content-center" style="position: fixed; top: 0%; width: 100%; height: 100vh;">
+        <div style="background-color: rgba(128, 128, 128, 0.486); text-align: center; padding: 1rem; border-radius: 10px;">
+            <div class="spinner-border text-dark" style="width: 2rem; height: 2rem; color: rgb(0, 0, 0);" role="status">
+                <span class="sr-only">Processing...</span>
+              </div><br>
+              <strong style="color: black; font-size: 1.1rem; font-weight: bold; text-align: center; width: 100%;">Processing.....</strong>
+        </div>
+    </div>
+
+
+    
+
+
+
+
+    
+
+<!-- ---------------------------------------------------------------------------------------------------------------- -->
+    <script src="{% static 'adminpanel.js' %}"></script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- Core plugin JavaScript-->
+    <!-- <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script> -->
+
+    <!-- Custom scripts for all pages-->
+    <script src="{% static 'js/sb-admin-2.min.js' %}"></script>
+
+    <!-- Page level plugins -->
+    <!-- <script src="{% static 'vendor/datatables/jquery.dataTables.min.js' %}"></script> -->
+    <!-- <script src="{% static 'vendor/datatables/dataTables.bootstrap4.min.js' %}"></script> -->
+
+    <!-- Page level custom scripts -->
+    <!-- <script src="{% static 'js/demo/datatables-demo.js' %}"></script> -->
+
+    <!--... Date Format javascript ...-->
+    <script type="text/javascript" src="https://stevenlevithan.com/assets/misc/date.format.js"></script>
+    
+
+</body>
+
+</html>

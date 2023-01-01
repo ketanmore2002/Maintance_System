@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maintainance Ticket Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<style>
+  body{
+    background-color: antiquewhite;
+  }
+</style>
+</head>
+<body>
+    <!-- navbar -->
+    <nav class="navbar navbar-light bg-primary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="images/maintenance-icon.svg" alt="" width="50" height="30" class="d-inline-block align-text-top">
+            Maintainance System
+          </a>
+        </div>
+    </nav>
+    <div class="grid" style="--bs-columns: 2;">
+        <div>
+           
+<!-- Form -->
+        </div>
+        <div class="mt-4">
+            <div class="container">
+                <div class="row">
+                  <div class="col">
+                    <img src="images/form1.png" alt="form" width="700" height="600" class="image-center">
+                  </div>
+                  <div class="col">
+                    <form container  >
+                        <h1 class="text-center">Raise Ticket</h1><br>
+                        Enter Name:<br>
+                        <div class="row g-3">
+                            <div class="col">
+                              <input type="text" class="form-control" placeholder="First name" aria-label="First name">
+                            </div>
+                            <div class="col">
+                              <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+                            </div>
+                          </div>
+                          <form class="row g-3">
+                            <div class="col-md-6">
+                              <label for="inputEmail4" class="form-label">Email</label><br>
+                              <input type="email" class="form-control" id="inputEmail4">
+                            </div>
+                            <div class="col-md-6"><br>
+                              <label for="inputNumber4" class="form-label">Mobile No</label>
+                              <input type="tel" name="Phone Number" pattern="[1-9]{1}[0-9]{9}" >
+                            </div>
+                            <div class="col-12"><br>
+                              <label for="inputAddress" class="form-label">Address</label>
+                              <input type="textarea" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                            </div>
+                            <div class="col-12">
+                              <label for="inputAddress2" class="form-label">Address 2</label>
+                              <input type="textarea" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                            </div>
+                            <div class="col-md-6">
+                              <label for="inputCity" class="form-label">City</label>
+                              <input type="text" class="form-control" id="inputCity">
+                            </div>
+                            <div class="col-md-4">
+                              <label for="inputState" class="form-label">State</label>
+                              <select id="inputState" class="form-select">
+                                <option selected>Choose...</option>
+                                <option>...</option>
+                              </select>
+                            </div>
+                            <div class="col-md-2">
+                              <label for="inputZip" class="form-label">Zip</label>
+                              <input type="text" class="form-control" id="inputZip">
+                            </div>
+                            <div class="col-12"><br>
+                                <label for="inputAddress" class="form-label">Enter Problem Description</label>
+                                <input type="textarea" class="form-control" id="inputAddress" >
+                              </div>
+                            <div class="col-12">
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="gridCheck">
+                                <label class="form-check-label" for="gridCheck">
+                                  Agree,Terms and Conditions.<a href="#">Read Terms and Conditions</a>
+                                </label>
+                              </div>
+                            </div>
+                            <div class="col-12"><br>
+                              <button type="submit" class="btn btn-primary " class="align-center">Submit Ticket</button>
+                            </div>
+                          </form>
+                    </form>
+                  </div>
+                </div>
+               
+                
+        </div>
+    <footer>
+        <h1></h1>
+    </footer>
+</body>
+</html>
